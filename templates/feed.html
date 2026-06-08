@@ -137,7 +137,7 @@
       height: 100%;
       object-fit: cover;
     }
-    .video-info { padding: 12px 14px; }
+    .video-info { padding: 12px 14px; position: relative; }
     .video-title {
       font-size: 14px;
       margin: 0 0 6px;
@@ -151,6 +151,18 @@
     .video-title a:hover { color: #065fd4; }
     .video-author { font-size: 12px; color: #606060; margin: 0 0 3px; font-weight: 500; }
     .video-date { font-size: 11px; color: #909090; margin: 0; }
+    .shorts-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: #FF0000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+    }
 
     .category-silent {
       margin-top: 12px;
@@ -266,6 +278,7 @@
               </h3>
               <p class="video-author">{{ video.author }}</p>
               <p class="video-date">{{ video.published.strftime('%H:%M') }}</p>
+              {% if video.is_short %}<span class="shorts-badge">Shorts</span>{% endif %}
             </div>
           </div>
           {% endfor %}

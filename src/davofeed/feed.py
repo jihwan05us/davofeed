@@ -30,12 +30,14 @@ def _entry_to_video(entry, handle: str) -> dict:
     thumbnail = ""
     if "media_thumbnail" in entry and entry.media_thumbnail:
         thumbnail = entry.media_thumbnail[0]["url"]
+    link = entry.link
     return {
         "title": entry.title,
-        "link": entry.link,
+        "link": link,
         "author": entry.get("author", handle),
         "published": _parse_dt(entry),
         "thumbnail": thumbnail,
+        "is_short": "/shorts/" in link,
     }
 
 
