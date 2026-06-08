@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통합 유튜브 피드 대시보드</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #111;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 { color: #FF0000; }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .video-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .thumbnail-link {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #eee;
+            overflow: hidden;
+        }
+        .thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-info {
+            padding: 15px;
+        }
+        .video-title {
+            font-size: 15px;
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .video-title a {
+            color: #0f0f0f;
+            text-decoration: none;
+        }
+        .video-title a:hover {
+            color: #065fd4;
+        }
+        .video-author {
+            font-size: 13px;
+            color: #606060;
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+        .video-date {
+            font-size: 12px;
+            color: #909090;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📺 통합 유튜브 피드 대시보드</h1>
+        <p>최근 업데이트: 2026-06-07 21:25:01</p>
+    </header>
+    <main class="video-grid">
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=5Sk5QzFBtR0" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/5Sk5QzFBtR0/hqdefault.jpg" alt="심야 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=5Sk5QzFBtR0" target="_blank">심야 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-06-07 18:29</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=Ya7fc67rY9w" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/Ya7fc67rY9w/hqdefault.jpg" alt="The Police - Roxanne (Guitar lesson with TAB)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=Ya7fc67rY9w" target="_blank">The Police - Roxanne (Guitar lesson with TAB)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-06-07 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=-dpcgoCYQ2Q" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/-dpcgoCYQ2Q/hqdefault.jpg" alt="라위효도관광- 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=-dpcgoCYQ2Q" target="_blank">라위효도관광- 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-06-07 12:26</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=cQd_8q88pDY" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/cQd_8q88pDY/hqdefault.jpg" alt="소신발언 - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=cQd_8q88pDY" target="_blank">소신발언 - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-06-06 12:14</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=j_9Ln4l1-q0" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/j_9Ln4l1-q0/hqdefault.jpg" alt="누군가 해주겠지 - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=j_9Ln4l1-q0" target="_blank">누군가 해주겠지 - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-06-04 13:30</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=wv5Yy1ANgL8" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/wv5Yy1ANgL8/hqdefault.jpg" alt="핫치즈밤 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=wv5Yy1ANgL8" target="_blank">핫치즈밤 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-06-03 20:50</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=eYuU3nMvHlc" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/eYuU3nMvHlc/hqdefault.jpg" alt="몇살이게요 - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=eYuU3nMvHlc" target="_blank">몇살이게요 - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-06-03 12:10</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=5yUEpVxY7SM" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/5yUEpVxY7SM/hqdefault.jpg" alt="Tom Morello Wrote a Guitar Solo Without Using Any Notes" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=5yUEpVxY7SM" target="_blank">Tom Morello Wrote a Guitar Solo Without Using Any Notes</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-06-03 09:59</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/pna1ZJGFFes" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/pna1ZJGFFes/hqdefault.jpg" alt="This was a fun one from Slash" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/pna1ZJGFFes" target="_blank">This was a fun one from Slash</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-06-02 14:30</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=ID1zM3GuJrI" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/ID1zM3GuJrI/hqdefault.jpg" alt="Radiohead - Lift (Guitar lesson with TAB)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=ID1zM3GuJrI" target="_blank">Radiohead - Lift (Guitar lesson with TAB)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-31 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=yOcl-gH4gNM" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/yOcl-gH4gNM/hqdefault.jpg" alt="Classical Gas - Mason Williams - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=yOcl-gH4gNM" target="_blank">Classical Gas - Mason Williams - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-30 14:42</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/t-icpWuX050" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/t-icpWuX050/hqdefault.jpg" alt="A quick finger exercise" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/t-icpWuX050" target="_blank">A quick finger exercise</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-27 14:26</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/4xDuQJ7F6ec" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/4xDuQJ7F6ec/hqdefault.jpg" alt="Guthrie Govan got the craziest chords ever" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/4xDuQJ7F6ec" target="_blank">Guthrie Govan got the craziest chords ever</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-27 13:44</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=Nbr3UD3qEzc" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/Nbr3UD3qEzc/hqdefault.jpg" alt="대체공휴일 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=Nbr3UD3qEzc" target="_blank">대체공휴일 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-25 21:32</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=CbQhbnDAXnw" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/CbQhbnDAXnw/hqdefault.jpg" alt="옴닉이되- 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=CbQhbnDAXnw" target="_blank">옴닉이되- 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-25 10:28</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=9RWHQyH9kNw" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/9RWHQyH9kNw/hqdefault.jpg" alt="Queens Of The Stone Age - A Song For The Dead (Guitar lesson with TAB)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=9RWHQyH9kNw" target="_blank">Queens Of The Stone Age - A Song For The Dead (Guitar lesson with TAB)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-24 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=7XJQypwPPzw" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/7XJQypwPPzw/hqdefault.jpg" alt="부처님오신날 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=7XJQypwPPzw" target="_blank">부처님오신날 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-23 19:50</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=28WuTR4xn4E" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/28WuTR4xn4E/hqdefault.jpg" alt="Pantera - Revolution is My Name - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=28WuTR4xn4E" target="_blank">Pantera - Revolution is My Name - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-22 14:24</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=bKcM812KGio" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/bKcM812KGio/hqdefault.jpg" alt="비오는 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=bKcM812KGio" target="_blank">비오는 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-21 18:41</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/5xSXGPWJv6U" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/5xSXGPWJv6U/hqdefault.jpg" alt="Suicide Solution - Live" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/5xSXGPWJv6U" target="_blank">Suicide Solution - Live</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-19 16:15</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/VuJ6ZX2mRcI" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/VuJ6ZX2mRcI/hqdefault.jpg" alt="Angine de Poitrine Are Pure Genius" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/VuJ6ZX2mRcI" target="_blank">Angine de Poitrine Are Pure Genius</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-19 12:28</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=nKJtequ7vmo" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/nKJtequ7vmo/hqdefault.jpg" alt="Weezer - Hash Pipe (Guitar lesson with TAB) | E Standard Tuning" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=nKJtequ7vmo" target="_blank">Weezer - Hash Pipe (Guitar lesson with TAB) | E Standard Tuning</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-17 14:01</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=RjtBWvWUuwo" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/RjtBWvWUuwo/hqdefault.jpg" alt="Stevie Ray Vaughan - Voodoo Child (Slight Return) - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=RjtBWvWUuwo" target="_blank">Stevie Ray Vaughan - Voodoo Child (Slight Return) - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-15 13:48</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=zzTweQHOVhM" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/zzTweQHOVhM/hqdefault.jpg" alt="스승의날 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=zzTweQHOVhM" target="_blank">스승의날 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-14 18:34</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=lLHX4S6w5Yo" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/lLHX4S6w5Yo/hqdefault.jpg" alt="평타가2발인이유-게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=lLHX4S6w5Yo" target="_blank">평타가2발인이유-게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-13 13:10</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/VmMmW0CXN_c" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/VmMmW0CXN_c/hqdefault.jpg" alt="What's your Favourite Jimmy Page riff?" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/VmMmW0CXN_c" target="_blank">What's your Favourite Jimmy Page riff?</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-12 14:30</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=VwV4j6igxKg" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/VwV4j6igxKg/hqdefault.jpg" alt="This At the Drive-In Riff Uses all the Wrong Notes" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=VwV4j6igxKg" target="_blank">This At the Drive-In Riff Uses all the Wrong Notes</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-12 11:20</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=VMUVIRYnaz0" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/VMUVIRYnaz0/hqdefault.jpg" alt="쉬림프 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=VMUVIRYnaz0" target="_blank">쉬림프 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-11 18:47</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=GJcMidnZzRw" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/GJcMidnZzRw/hqdefault.jpg" alt="The Smiths - How Soon Is Now? (Guitar lesson with TAB)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=GJcMidnZzRw" target="_blank">The Smiths - How Soon Is Now? (Guitar lesson with TAB)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-10 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=JnzvNlDZZWE" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/JnzvNlDZZWE/hqdefault.jpg" alt="어버이날 탱커 오버워치  - 게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=JnzvNlDZZWE" target="_blank">어버이날 탱커 오버워치  - 게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-08 17:35</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=VkTQAtXCRgI" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/VkTQAtXCRgI/hqdefault.jpg" alt="Metallica - Am I Evil? (Diamond Head) - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=VkTQAtXCRgI" target="_blank">Metallica - Am I Evil? (Diamond Head) - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-08 14:51</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=cwdldowOeV8" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/cwdldowOeV8/hqdefault.jpg" alt="밥상차려주는탱커-게구리" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=cwdldowOeV8" target="_blank">밥상차려주는탱커-게구리</a>
+                </h3>
+                <p class="video-author">게구리 Geguri</p>
+                <p class="video-date">2026-05-08 13:18</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/CrlTvYJx114" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/CrlTvYJx114/hqdefault.jpg" alt="Paul McCartney at his peak recording Blackbird" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/CrlTvYJx114" target="_blank">Paul McCartney at his peak recording Blackbird</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-06 13:34</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/OAHipTtCVT0" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/OAHipTtCVT0/hqdefault.jpg" alt="Michael Jackson - Eddie Van Halen - Beat It (Solo)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/OAHipTtCVT0" target="_blank">Michael Jackson - Eddie Van Halen - Beat It (Solo)</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-05-04 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=XmFQtVSLGoA" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/XmFQtVSLGoA/hqdefault.jpg" alt="System Of A Down - Vicinity Of Obscenity (Guitar lesson with TAB)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=XmFQtVSLGoA" target="_blank">System Of A Down - Vicinity Of Obscenity (Guitar lesson with TAB)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-05-03 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=crzAcStL_3s" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/crzAcStL_3s/hqdefault.jpg" alt="Ozzy Osbourne - Suicide Solution Live - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=crzAcStL_3s" target="_blank">Ozzy Osbourne - Suicide Solution Live - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-04-30 15:28</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/TooTI7Gda3w" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/TooTI7Gda3w/hqdefault.jpg" alt="Frusciante's Most Creative Acoustic Riff" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/TooTI7Gda3w" target="_blank">Frusciante's Most Creative Acoustic Riff</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-04-28 14:53</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/Zw8koeL8Yz0" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/Zw8koeL8Yz0/hqdefault.jpg" alt="Isolated Blackened Solo" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/Zw8koeL8Yz0" target="_blank">Isolated Blackened Solo</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-04-28 14:30</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=0etGttSX3XA" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/0etGttSX3XA/hqdefault.jpg" alt="Radiohead - The Tourist (Guitar lesson with TAB)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=0etGttSX3XA" target="_blank">Radiohead - The Tourist (Guitar lesson with TAB)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-04-26 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=msgkvdsdOtk" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/msgkvdsdOtk/hqdefault.jpg" alt="AC/DC - Dirty Deeds Done Dirt Cheap - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=msgkvdsdOtk" target="_blank">AC/DC - Dirty Deeds Done Dirt Cheap - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-04-24 14:41</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/b4AgWWxaoag" target="_blank" class="thumbnail-link">
+                <img src="https://i3.ytimg.com/vi/b4AgWWxaoag/hqdefault.jpg" alt="What other Santana tabs are you looking for?" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/shorts/b4AgWWxaoag" target="_blank">What other Santana tabs are you looking for?</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-04-21 14:53</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=tHUZpAs9Kcc" target="_blank" class="thumbnail-link">
+                <img src="https://i1.ytimg.com/vi/tHUZpAs9Kcc/hqdefault.jpg" alt="The South Park End Theme Sounds Terrible (and I love it)" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=tHUZpAs9Kcc" target="_blank">The South Park End Theme Sounds Terrible (and I love it)</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-04-21 12:18</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=AdncDNedAO8" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/AdncDNedAO8/hqdefault.jpg" alt="Deftones - Digital Bath (Guitar lesson with TAB) | DROP C TUNING" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=AdncDNedAO8" target="_blank">Deftones - Digital Bath (Guitar lesson with TAB) | DROP C TUNING</a>
+                </h3>
+                <p class="video-author">Nikola Gugoski</p>
+                <p class="video-date">2026-04-19 14:00</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=K40YWAP-w2s" target="_blank" class="thumbnail-link">
+                <img src="https://i4.ytimg.com/vi/K40YWAP-w2s/hqdefault.jpg" alt="Black Sabbath - Children of the Grave - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=K40YWAP-w2s" target="_blank">Black Sabbath - Children of the Grave - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-04-17 15:12</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v=yL8Ded-oHqY" target="_blank" class="thumbnail-link">
+                <img src="https://i2.ytimg.com/vi/yL8Ded-oHqY/hqdefault.jpg" alt="The Tragically Hip - Ahead by a Century - Guitar Tab | Lesson | Cover | Tutorial" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+                <h3 class="video-title">
+                    <a href="https://www.youtube.com/watch?v=yL8Ded-oHqY" target="_blank">The Tragically Hip - Ahead by a Century - Guitar Tab | Lesson | Cover | Tutorial</a>
+                </h3>
+                <p class="video-author">Mr. Tabs</p>
+                <p class="video-date">2026-04-14 17:28</p>
+            </div>
+        </div>
+        
+    </main>
+</body>
+</html>
