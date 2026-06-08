@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ date }} — YouTube Feed</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #111;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 { color: #FF0000; margin-bottom: 4px; }
+    .subtitle { color: #606060; font-size: 14px; margin: 0; }
+
+    /* Summary */
+    .summary {
+      max-width: 960px;
+      margin: 0 auto 40px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 28px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .summary h2 { font-size: 16px; margin: 0 0 12px; color: #333; }
+    .summary-group { margin-bottom: 16px; }
+    .summary-group-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #555;
+      text-transform: capitalize;
+      margin: 0 0 6px;
+    }
+    .summary-group-total {
+      font-size: 13px;
+      color: #FF0000;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 6px;
+    }
+    .summary-item {
+      font-size: 13px;
+      padding: 5px 10px;
+      background: #f0f0f0;
+      border-radius: 6px;
+    }
+    .summary-item a {
+      color: #111;
+      text-decoration: none;
+    }
+    .summary-item a:hover { color: #065fd4; }
+    .summary-item .count { font-weight: 700; color: #FF0000; }
+
+    .silent-section { margin-top: 16px; }
+    .silent-section h3 { font-size: 14px; color: #909090; margin: 0 0 8px; }
+    .silent-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .silent-tag {
+      font-size: 12px;
+      padding: 3px 8px;
+      background: #eee;
+      border-radius: 4px;
+      color: #666;
+    }
+    .error-tag {
+      font-size: 12px;
+      padding: 3px 8px;
+      background: #fee;
+      border-radius: 4px;
+      color: #c00;
+    }
+
+    /* Sections */
+    .feed-section {
+      max-width: 1400px;
+      margin: 0 auto 48px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 4px;
+      text-transform: capitalize;
+    }
+    .section-count {
+      font-size: 13px;
+      color: #FF0000;
+      font-weight: 600;
+      margin: 0 0 16px;
+    }
+    .category-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #444;
+      margin: 24px 0 12px;
+      text-transform: capitalize;
+      border-left: 3px solid #FF0000;
+      padding-left: 10px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .video-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+    .thumbnail-link {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #eee;
+      overflow: hidden;
+    }
+    .thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-info { padding: 12px 14px; }
+    .video-title {
+      font-size: 14px;
+      margin: 0 0 6px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .video-title a { color: #0f0f0f; text-decoration: none; }
+    .video-title a:hover { color: #065fd4; }
+    .video-author { font-size: 12px; color: #606060; margin: 0 0 3px; font-weight: 500; }
+    .video-date { font-size: 11px; color: #909090; margin: 0; }
+
+    .category-silent {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #aaa;
+    }
+    .category-silent span {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 2px 7px;
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+    #to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #FF0000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    #to-top:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📺 YouTube Feed — {{ date }}</h1>
+  <p class="subtitle">Generated {{ generated_at }}</p>
+</header>
+
+<!-- Summary -->
+<div class="summary">
+  <h2>Summary</h2>
+
+  {% for stem, categories in data.items() %}
+    {% set stem_total = namespace(n=0) %}
+    {% for category, info in categories.items() %}
+      {% set stem_total.n = stem_total.n + (info.videos | length) %}
+    {% endfor %}
+    {% if stem_total.n > 0 %}
+    <div class="summary-group">
+      <div class="summary-group-title">
+        {{ stem }}
+        <span class="summary-group-total">{{ stem_total.n }} video{{ 's' if stem_total.n != 1 }}</span>
+      </div>
+      <div class="summary-grid">
+        {% for category, info in categories.items() %}
+          {% if info.videos %}
+            <div class="summary-item">
+              <a href="#{{ stem }}-{{ category }}">{{ category }}</a><br>
+              <span class="count">{{ info.videos | length }} video{{ 's' if info.videos | length != 1 }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  <!-- Error channels only -->
+  {% set all_errors = [] %}
+  {% for stem, categories in data.items() %}
+    {% for category, info in categories.items() %}
+      {% for pair in info.error_handles %}
+        {% if all_errors.append(pair[0]) %}{% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if all_errors %}
+  <div class="silent-section">
+    <h3>Fetch errors ({{ all_errors | length }})</h3>
+    <div class="silent-list">
+      {% for h in all_errors %}<span class="error-tag">{{ h }}</span>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Feed sections -->
+{% for stem, categories in data.items() %}
+  {% set stem_total = namespace(n=0) %}
+  {% for category, info in categories.items() %}
+    {% set stem_total.n = stem_total.n + (info.videos | length) %}
+  {% endfor %}
+  {% if stem_total.n > 0 %}
+  <div class="feed-section" id="{{ stem }}">
+    <div class="section-title">{{ stem }}</div>
+    <div class="section-count">{{ stem_total.n }} new video{{ 's' if stem_total.n != 1 }}</div>
+
+    {% for category, info in categories.items() %}
+      {% if info.videos %}
+      <div id="{{ stem }}-{{ category }}">
+        <div class="category-title">{{ category }}</div>
+        <div class="video-grid">
+          {% for video in info.videos %}
+          <div class="video-card">
+            <a href="{{ video.link }}" target="_blank" class="thumbnail-link">
+              <img src="{{ video.thumbnail }}" alt="{{ video.title }}" class="thumbnail" loading="lazy">
+            </a>
+            <div class="video-info">
+              <h3 class="video-title">
+                <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+              </h3>
+              <p class="video-author">{{ video.author }}</p>
+              <p class="video-date">{{ video.published.strftime('%H:%M') }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% if info.silent_handles or info.error_handles %}
+        <div class="category-silent">
+          No update:
+          {% for h in info.silent_handles %}<span>{{ h }}</span>{% endfor %}
+          {% for pair in info.error_handles %}<span style="color:#c00">{{ pair[0] }}</span>{% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endfor %}
+
+<button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+</body>
+</html>
