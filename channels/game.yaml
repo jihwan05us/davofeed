@@ -1,47 +1,49 @@
 ---
 
 CitiesSkylines:
-  - hobbyblueworld # 블루
-
+  hobbyblueworld: '블루'
 
 Civilization:
-  - JustOneMoreTurn # One More Turn
+  civilization: 'Sid Meier''s Civilization'
+  JustOneMoreTurn: 'Just One More Turn'
 
 ForzaHorizon:
-  - IsuckAtDriving
-  - real_pooqoopooq # 푸쿠푸쿠푸
+  IsuckAtDriving: 'IsuckAtDriving'
+  GB카브릉: '카브릉'
+  real_pooqoopooq: '푸쿠푸쿠푸'
 
 Overwatch:
-  - 강오목
-  - geguri9162 # 게구리
-  - gunugunu1203 # 그누그누
-  - 근모닝
-  - kimtongsu # 김통수
-  - FAST_SLOTH # 나무늘보
-  - ryujehong1 # 류제홍
-  - ma_pay # 마페
-  - 문창식-Changsik # 문창식
-  - 배빛OW
-  - 빵람쥐
-  - 사봉디
-  - _Azucar # 아주카르
-  - aron # 아론 페이지
-  - overwatchEsports # 아이치
-  - yongsa98 # 용사98
-  - 위버타임
-  - YoooRyeong # 유령
-  - Akaros83 # 장지수
-  - J_CUBE_ # 제이큐브
-  - Juru123 # 주루
-  - GB카브릉 # 카브릉
-  - KaiserOW # 카이저
-  - CLASSICUS- # 클라시쿠스
-  - 행성이게임 # 행성이
-  - 추억 # 현브
+  _Azucar: '아주카르 Azucar'
+  Akaros83: '장지수'
+  aron: '아론 페이지'
+  CLASSICUS-: '클라시쿠스'
+  FAST_SLOTH: '나무늘보'
+  geguri9162: '게구리'
+  gunugunu1203: '그누그누'
+  J_CUBE_: '제이큐브'
+  Juru123: '주루'
+  KaiserOW: '카이저'
+  kimtongsu: '김통수'
+  ma_pay: '마페'
+  playoverwatch: 'Overwatch'
+  ryujehong1: '류제홍'
+  yongsa98: '용사98'
+  YoooRyeong: '유령'
+  강오목: '강오목'
+  근모닝: '근모닝'
+  문창식-Changsik: '문창식'
+  배빛OW: '배빛OW'
+  빵람쥐: '빵람쥐'
+  사봉디: '사봉디'
+  위버타임: '위버타임'
+  추억: '현브'
+  행성이게임: '행성이게임'
 
 WoW:
-  - skillcappedwowpvp # Skill Capped WoW PvP Guides
-  - 추즈니
+  skillcappedwowpvp: 'Skill Capped WoW PvP Guides'
+  Warcraft: 'World of Warcraft'
+  추즈니: '추즈니'
+
 
 ...
 
