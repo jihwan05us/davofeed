@@ -9,13 +9,21 @@ from .utils.youtube import fetch_entries, get_channel_id
 _CHANNELS_DIR = Path(__file__).parent.parent.parent / "channels"
 
 
-def load_channels() -> dict[str, dict[str, list[str]]]:
-    """Returns {filename_stem: {category: [handles]}} for all channels/*.yaml."""
+def load_channels() -> dict[str, dict[str, dict[str, str]]]:
+    """Returns {filename_stem: {category: {handle: display_name}}} for all channels/*.yaml.
+    Supports both list format (handle only) and dict format (handle: display_name).
+    """
     result = {}
     for path in sorted(_CHANNELS_DIR.glob("*.yaml")):
         with open(path, encoding="utf-8") as f:
             data = yaml.safe_load(f) or {}
-        result[path.stem] = {k: v for k, v in data.items() if isinstance(v, list)}
+        categories = {}
+        for k, v in data.items():
+            if isinstance(v, dict):
+                categories[k] = {handle: name for handle, name in v.items()}
+            elif isinstance(v, list):
+                categories[k] = {handle: handle for handle in v}
+        result[path.stem] = categories
     return result
 
 
@@ -64,7 +72,7 @@ def collect_by_date(
 
     for stem, categories in channels.items():
         result[stem] = {}
-        all_handles = [h for handles in categories.values() for h in handles]
+        all_handles = [h for handles in categories.values() for h in handles.keys()]
 
         with tqdm(
             total=len(all_handles),
@@ -77,18 +85,18 @@ def collect_by_date(
                 silent = []
                 errors = []
 
-                for handle in handles:
+                for handle, display_name in handles.items():
                     bar.set_postfix_str(handle[:20], refresh=True)
                     channel_id, err = get_channel_id(handle)
 
                     if not channel_id:
-                        errors.append((handle, err))
+                        errors.append((display_name, err))
                         bar.update(1)
                         continue
 
                     entries = fetch_entries(channel_id)
                     day_videos = [
-                        _entry_to_video(e, handle)
+                        _entry_to_video(e, display_name)
                         for e in entries
                         if _parse_dt(e).date() == date
                     ]
@@ -96,7 +104,7 @@ def collect_by_date(
                     if day_videos:
                         videos.extend(day_videos)
                     else:
-                        silent.append(handle)
+                        silent.append(display_name)
 
                     bar.update(1)
 

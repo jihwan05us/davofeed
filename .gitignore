@@ -1,0 +1,31 @@
+## C
+*.so
+
+## Python
+__pycache__/
+*.py[codz]
+.pytest_cache/
+.ipynb_checkpoints/
+
+## Distribution & packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+## Environments
+.env
+.envrc
+.venv/
+env/
+
+## Other
+.DS_Store
+.claude/
+.vscode/
+
+## Local backup and test
+_backup/
+_defer/
+_old/
+_test/

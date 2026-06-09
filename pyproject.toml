@@ -1,0 +1,35 @@
+# pyproject.toml
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling>=1.11"]
+
+[project]
+name = "davofeed"
+description = "DavoLatte's YouTube Daily Feed Aggregator"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+]
+authors = [
+  { name="Jihwan Oh", email="jihwan05us@gmail.com" },
+]
+maintainers = [
+  { name="Jihwan Oh", email="jihwan05us@gmail.com" },
+]
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "feedparser",
+    "jinja2",
+    "pyyaml",
+    "requests",
+    "tqdm",
+]
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/jihwan05us/davofeed"
+Issues = "https://github.com/jihwan05us/davofeed/issues"
