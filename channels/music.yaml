@@ -1,16 +1,17 @@
 ---
 
 guitar:
-  - activemelody
-  - jeunghoonlee # 이정훈
-  - tomofujitamusic # Tomo Fujita
-  - remij1992 # Remi J
-  - albertolombardimusic # Alberto Lombardi
-  - songnotes # Song Notes by David Pots
-  - ryomatsuramusic # Ryo Matsura Music
-  - quistjam # Quist
-  - MarkZabel # Mark Zabel
-  - EmanuelHedberg # Emanuel Hedberg
+  activemelody: 'ActiveMelody'
+  albertolombardimusic: 'Alberto Lombardi Music'
+  EmanuelHedberg: 'Emanuel Hedberg'
+  jeunghoonlee: '이정훈 JeungHoon Lee'
+  MarkZabel: 'Mark Zabel'
+  quistjam: 'Quist'
+  remij1992: 'Remi J.'
+  ryomatsuramusic: 'Ryo Matsura Music'
+  songnotes: 'Song Notes by David Pots'
+  tomofujitamusic: 'Tomo Fujita Guitar Wisdom'
+
 
 ...
 
