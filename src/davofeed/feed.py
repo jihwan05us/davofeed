@@ -4,7 +4,7 @@ from pathlib import Path
 import yaml
 from tqdm import tqdm
 
-from .utils.youtube import fetch_entries, get_channel_id
+from .utils.youtube import check_live_status, fetch_entries, get_channel_id
 
 _CHANNELS_DIR = Path(__file__).parent.parent.parent / "channels"
 
@@ -34,7 +34,7 @@ def _parse_dt(entry) -> datetime.datetime:
     return datetime.datetime.min
 
 
-def _entry_to_video(entry, handle: str) -> dict:
+def _entry_to_video(entry, display_name: str) -> dict:
     thumbnail = ""
     if "media_thumbnail" in entry and entry.media_thumbnail:
         thumbnail = entry.media_thumbnail[0]["url"]
@@ -42,10 +42,12 @@ def _entry_to_video(entry, handle: str) -> dict:
     return {
         "title": entry.title,
         "link": link,
-        "author": entry.get("author", handle),
+        "video_id": entry.get("yt_videoid", ""),
+        "author": entry.get("author", display_name),
         "published": _parse_dt(entry),
         "thumbnail": thumbnail,
         "is_short": "/shorts/" in link,
+        "is_live": False,
     }
 
 
@@ -107,6 +109,11 @@ def collect_by_date(
                         silent.append(display_name)
 
                     bar.update(1)
+
+                if videos:
+                    live_ids = check_live_status([v["video_id"] for v in videos if v["video_id"]])
+                    for v in videos:
+                        v["is_live"] = v["video_id"] in live_ids
 
                 videos.sort(key=lambda v: v["published"], reverse=True)
                 result[stem][category] = {

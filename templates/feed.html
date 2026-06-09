@@ -151,18 +151,19 @@
     .video-title a:hover { color: #065fd4; }
     .video-author { font-size: 12px; color: #606060; margin: 0 0 3px; font-weight: 500; }
     .video-date { font-size: 11px; color: #909090; margin: 0; }
-    .shorts-badge {
+    .badge {
       position: absolute;
       bottom: 12px;
       right: 14px;
       font-size: 10px;
       font-weight: 700;
       color: #fff;
-      background: #FF0000;
       padding: 2px 6px;
       border-radius: 4px;
       letter-spacing: 0.4px;
     }
+    .badge-shorts { background: #FF0000; }
+    .badge-live { background: #1a8a1a; }
 
     .category-silent {
       margin-top: 12px;
@@ -278,7 +279,8 @@
               </h3>
               <p class="video-author">{{ video.author }}</p>
               <p class="video-date">{{ video.published.strftime('%H:%M') }}</p>
-              {% if video.is_short %}<span class="shorts-badge">Shorts</span>{% endif %}
+              {% if video.is_live %}<span class="badge badge-live">Live</span>
+              {% elif video.is_short %}<span class="badge badge-shorts">Shorts</span>{% endif %}
             </div>
           </div>
           {% endfor %}

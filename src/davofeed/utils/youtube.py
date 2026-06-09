@@ -1,7 +1,14 @@
+import os
 import re
 
 import feedparser
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+_API_KEY = os.getenv("YOUTUBE_API_KEY")
+_API_URL = "https://www.googleapis.com/youtube/v3/videos"
 
 _HEADERS = {
     "User-Agent": (
@@ -41,3 +48,31 @@ def fetch_entries(channel_id: str) -> list[dict]:
     rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
     feed = feedparser.parse(rss_url)
     return feed.entries
+
+
+def check_live_status(video_ids: list[str]) -> set[str]:
+    """Returns set of video IDs that are live stream recordings."""
+    if not _API_KEY or not video_ids:
+        return set()
+
+    live_ids = set()
+    for i in range(0, len(video_ids), 50):
+        batch = video_ids[i:i + 50]
+        try:
+            resp = requests.get(
+                _API_URL,
+                params={
+                    "part": "liveStreamingDetails",
+                    "id": ",".join(batch),
+                    "key": _API_KEY,
+                },
+                timeout=10,
+            )
+            resp.raise_for_status()
+            for item in resp.json().get("items", []):
+                if "liveStreamingDetails" in item:
+                    live_ids.add(item["id"])
+        except Exception as e:
+            print(f"  [warn] live status check failed: {e}")
+
+    return live_ids
