@@ -1,44 +1,48 @@
 ---
 
 CitiesSkylines:
-  hobbyblueworld: '블루'
+  hobbyblueworld: 'Blue World'
+  nutsyoutube: '너츠'
 
 Civilization:
   civilization: 'Sid Meier''s Civilization'
-  JustOneMoreTurn: 'Just One More Turn'
+  JustOneMoreTurn: 'One More Turn'
 
 ForzaHorizon:
-  IsuckAtDriving: 'IsuckAtDriving'
+  DonJoewonSong: 'Don Joewon Song'
   GB카브릉: '카브릉'
+  IsuckAtDriving: 'IsuckAtDriving'
   real_pooqoopooq: '푸쿠푸쿠푸'
 
 Overwatch:
-  _Azucar: '아주카르 Azucar'
-  Akaros83: '장지수'
+  _Azucar: '아주카르_Azucar'
+  Akaros83: '장지수 해설'
   aron: '아론 페이지'
   CLASSICUS-: '클라시쿠스'
   FAST_SLOTH: '나무늘보'
-  geguri9162: '게구리'
+  geguri9162: '게구리 Geguri'
   gunugunu1203: '그누그누'
   J_CUBE_: '제이큐브'
   Juru123: '주루'
-  KaiserOW: '카이저'
+  KaiserOW: '카이저KAISER'
   kimtongsu: '김통수'
   ma_pay: '마페'
-  playoverwatch: 'Overwatch'
-  ryujehong1: '류제홍'
+  playoverwatch: 'PlayOverwatch'
+  ryujehong1: 'ryujehong'
+  SOHYUP_OW: '소협'
   yongsa98: '용사98'
   YoooRyeong: '유령'
   강오목: '강오목'
   근모닝: '근모닝'
   리스트_오버워치_LIST: '리스트 오버워치 LIST'
-  문창식-Changsik: '문창식'
-  배빛OW: '배빛OW'
+  문창식-Changsik: '문창식 Changsik'
+  배빛OW: '배빛 OW'
   빵람쥐: '빵람쥐'
   사봉디: '사봉디'
   위버타임: '위버타임'
+  유후랑옵치할래: '유후랑 옵치할래'
   추억: '현브'
-  행성이게임: '행성이게임'
+  행성이게임: '행성이 게임'
 
 WoW:
   skillcappedwowpvp: 'Skill Capped WoW PvP Guides'
@@ -47,4 +51,3 @@ WoW:
 
 
 ...
-
